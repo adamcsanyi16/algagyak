@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Algagyak</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="algagyak-container">
+      <h1>Algagyak</h1>
+
+      <div class="button-row">
+        <button id="btn1">1. kód</button>
+        <button id="btn2">2. kód</button>
+        <button disabled>3. kód</button>
+        <button disabled>4. kód</button>
+      </div>
+
+      <a
+        id="download-task1"
+        href="feladat1.txt"
+        class="download-btn hidden"
+        >📄 Feladat megtekintése</a
+      >
+      <pre id="code-block1" class="code-block hidden"></pre>
+      <a
+        id="download-task2"
+        href="https://mester.inf.elte.hu:8181/faces/leiras.xhtml?jfwid=6e83d228f47b0019bc4e968dcf7f:29"
+        class="download-btn hidden"
+        >📄 Feladat megtekintése</a
+      >
+      <pre id="code-block2" class="code-block hidden"></pre>
+    </div>
+
+    <script>
+      const codes = {
+        1: `# Telek eladás (dinamukus programozás)
+n = int(input())
+T = [0] + list(map(int, input().split()))
+
+dp = [0] * (n + 1)
+
+dp[1] = T[1]
+for i in range(2, n + 1):
+    dp[i] = max(dp[i-1], dp[i-2] + T[i])
+
+print(dp[n])
+
+i = n
+telkek = []
+while i >= 1:
+    if i == 1:
+        telkek.append(1)
+        break
+    if dp[i] == dp[i-1]:
+        i -= 1
+    else:
+        telkek.append(i)
+        i -= 2
+
+telkek.sort()
+print(*telkek)`,
+
+        2: `# Állatkert (Gráfok)
+N, M = map(int, input().split())
+
+deg = [0] * (N + 1)
+for _ in range(M):
+    u, v = map(int, input().split())
+    deg[u] += 1
+    deg[v] += 1
+
+dead_ends = sum(1 for i in range(1, N + 1) if deg[i] == 1)
+
+max_deg = max(deg[1:])
+max_node = deg.index(max_deg)
+
+print(dead_ends, max_node)`,
+
+        3: `# Harmadik Python kód
+for i in range(5):
+    print(i)`,
+
+        4: `# Negyedik Python kód
+numbers = [1, 2, 3, 4]
+print(sum(numbers))`,
+      };
+
+      const btn1 = document.getElementById("btn1");
+      const btn2 = document.getElementById("btn2");
+      
+      const codeBlock1 = document.getElementById("code-block1");
+      const codeBlock2 = document.getElementById("code-block2");
+      const downloadTask1 = document.getElementById("download-task1");
+      const downloadTask2 = document.getElementById("download-task2");
+
+      btn1.addEventListener("click", () => {
+        codeBlock1.textContent = codes[1];
+        codeBlock1.classList.remove("hidden");
+        downloadTask1.classList.remove("hidden");
+
+        codeBlock2.classList.add("hidden");
+        downloadTask2.classList.add("hidden");
+      });
+      btn2.addEventListener("click", () => {
+        codeBlock2.textContent = codes[2];
+        codeBlock2.classList.remove("hidden");
+        downloadTask2.classList.remove("hidden");
+
+        codeBlock1.classList.add("hidden");
+        downloadTask1.classList.add("hidden");
+      });
+    </script>
+  </body>
+</html>

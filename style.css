@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #171717;
+  color: #fff;
+  font-family: Helvetica, Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.algagyak-container {
+  text-align: center;
+  padding: 2rem;
+}
+
+.algagyak-container h2 {
+  font-family: "Merienda", cursive;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.button-row button {
+  background-color: #252427;
+  color: #fff;
+  border: none;
+  border-radius: 1.5rem;
+  padding: 0.8rem 1.6rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button-row button:hover:not(:disabled) {
+  background-color: #626263;
+  transform: scale(1.05);
+}
+
+.button-row button:disabled {
+  background-color: #3a3a3a;
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+#code-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  animation: fadeIn 0.5s ease;
+}
+
+.download-btn {
+  background-color: #00ff90;
+  color: #171717;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.6rem 1.2rem;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+  background-color: #4bffb5;
+  transform: scale(1.05);
+}
+
+.code-block {
+  background-color: #252427;
+  color: #00ff90;
+  font-family: monospace;
+  padding: 1.5rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 700px;
+  text-align: left;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  margin: 0 auto;
+  transition: 0.4s ease;
+}
+
+.code-block:hover {
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
