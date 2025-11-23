@@ -13,8 +13,8 @@
       <div class="button-row">
         <button id="btn1">1. kód</button>
         <button id="btn2">2. kód</button>
-        <button disabled>3. kód</button>
-        <button disabled>4. kód</button>
+        <button id="btn3">3. kód</button>
+        <button id="btn4">4. kód</button>
       </div>
 
       <a
@@ -31,6 +31,20 @@
         >📄 Feladat megtekintése</a
       >
       <pre id="code-block2" class="code-block hidden"></pre>
+      <a
+        id="download-task3"
+        href="https://mester.inf.elte.hu:8181/faces/leiras.xhtml?jfwid=0d77f91504a4424312acfb25d143:21"
+        class="download-btn hidden"
+        >📄 Feladat megtekintése</a
+      >
+      <pre id="code-block3" class="code-block hidden"></pre>
+      <a
+        id="download-task4"
+        href="https://mester.inf.elte.hu:8181/faces/leiras.xhtml?jfwid=b87d5d9114d73a1f34fd1cd865e9:294"
+        class="download-btn hidden"
+        >📄 Feladat megtekintése</a
+      >
+      <pre id="code-block4" class="code-block hidden"></pre>
     </div>
 
     <script>
@@ -79,21 +93,52 @@ max_node = deg.index(max_deg)
 print(dead_ends, max_node)`,
 
         3: `# Harmadik Python kód
-for i in range(5):
-    print(i)`,
+N = int(input())
+osszes = 0
+
+for i in range(N):
+    le, fel = map(int, input().split())
+    osszes += fel
+
+print(osszes)`,
 
         4: `# Negyedik Python kód
-numbers = [1, 2, 3, 4]
-print(sum(numbers))`,
+n, k = map(int,input().split())
+allomas = -1
+erkezesiido = 0
+
+
+for i in range(n):
+    t, erk, ind = map(int,input().split())
+
+    if erk > k:
+        allomas = i+1
+        erkezesiido = erk
+        break
+
+if allomas == -1:
+    print(allomas)
+else:
+    print(allomas, erkezesiido)`,
       };
 
       const btn1 = document.getElementById("btn1");
       const btn2 = document.getElementById("btn2");
-      
+      const btn3 = document.getElementById("btn3");
+      const btn4 = document.getElementById("btn4");
+      const btn5 = document.getElementById("btn5");
+
       const codeBlock1 = document.getElementById("code-block1");
       const codeBlock2 = document.getElementById("code-block2");
+      const codeBlock3 = document.getElementById("code-block3");
+      const codeBlock4 = document.getElementById("code-block4");
+      const codeBlock5 = document.getElementById("code-block5");
+
       const downloadTask1 = document.getElementById("download-task1");
       const downloadTask2 = document.getElementById("download-task2");
+      const downloadTask3 = document.getElementById("download-task3");
+      const downloadTask4 = document.getElementById("download-task4");
+      const downloadTask5 = document.getElementById("download-task5");
 
       btn1.addEventListener("click", () => {
         codeBlock1.textContent = codes[1];
@@ -102,7 +147,12 @@ print(sum(numbers))`,
 
         codeBlock2.classList.add("hidden");
         downloadTask2.classList.add("hidden");
+        codeBlock3.classList.add("hidden");
+        downloadTask3.classList.add("hidden");
+        codeBlock4.classList.add("hidden");
+        downloadTask4.classList.add("hidden");
       });
+
       btn2.addEventListener("click", () => {
         codeBlock2.textContent = codes[2];
         codeBlock2.classList.remove("hidden");
@@ -110,6 +160,36 @@ print(sum(numbers))`,
 
         codeBlock1.classList.add("hidden");
         downloadTask1.classList.add("hidden");
+        codeBlock3.classList.add("hidden");
+        downloadTask3.classList.add("hidden");
+        codeBlock4.classList.add("hidden");
+        downloadTask4.classList.add("hidden");
+      });
+
+      btn3.addEventListener("click", () => {
+        codeBlock3.textContent = codes[3];
+        codeBlock3.classList.remove("hidden");
+        downloadTask3.classList.remove("hidden");
+
+        codeBlock1.classList.add("hidden");
+        downloadTask1.classList.add("hidden");
+        codeBlock2.classList.add("hidden");
+        downloadTask2.classList.add("hidden");
+        codeBlock4.classList.add("hidden");
+        downloadTask4.classList.add("hidden");
+      });
+
+      btn4.addEventListener("click", () => {
+        codeBlock4.textContent = codes[4];
+        codeBlock4.classList.remove("hidden");
+        downloadTask4.classList.remove("hidden");
+
+        codeBlock1.classList.add("hidden");
+        downloadTask1.classList.add("hidden");
+        codeBlock2.classList.add("hidden");
+        downloadTask2.classList.add("hidden");
+        codeBlock3.classList.add("hidden");
+        downloadTask3.classList.add("hidden");
       });
     </script>
   </body>
