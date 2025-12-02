@@ -15,6 +15,7 @@
         <button id="btn2">2. kód</button>
         <button id="btn3">3. kód</button>
         <button id="btn4">4. kód</button>
+        <button id="btn5">5. kód</button>
       </div>
 
       <a
@@ -45,11 +46,18 @@
         >📄 Feladat megtekintése</a
       >
       <pre id="code-block4" class="code-block hidden"></pre>
+      <a
+        id="download-task5"
+        href="https://mester.inf.elte.hu:8181/faces/leiras.xhtml?jfwid=b87d5d9114d73a1f34fd1cd865e9:294"
+        class="download-btn hidden"
+        >📄 Feladat megtekintése</a
+      >
+      <pre id="code-block5" class="code-block hidden"></pre>
     </div>
 
     <script>
       const codes = {
-        1: `# Telek eladás (dinamukus programozás)
+        1: `# Telek eladás (Dinamukus programozás)
 n = int(input())
 T = [0] + list(map(int, input().split()))
 
@@ -92,7 +100,7 @@ max_node = deg.index(max_deg)
 
 print(dead_ends, max_node)`,
 
-        3: `# Felszállók száma
+        3: `# Felszállók száma (könnyű)
 N = int(input())
 osszes = 0
 
@@ -102,7 +110,7 @@ for i in range(N):
 
 print(osszes)`,
 
-        4: `# Első állomás adott időn kívül
+        4: `# Első állomás adott időn kívül (könnyű)
 n, k = map(int,input().split())
 allomas = -1
 erkezesiido = 0
@@ -120,6 +128,21 @@ if allomas == -1:
     print(allomas)
 else:
     print(allomas, erkezesiido)`,
+
+        5: `Ahol a madár se jár (könnyű)
+        m, n = map(int, input().split())
+
+hely = 0
+
+for i in range(1, m + 1):
+    sor = list(map(int, input().split()))
+    
+    if all(x == 0 for x in sor):
+        hely = i
+        break
+
+print(hely)
+        `,
       };
 
       const btn1 = document.getElementById("btn1");
@@ -151,6 +174,8 @@ else:
         downloadTask3.classList.add("hidden");
         codeBlock4.classList.add("hidden");
         downloadTask4.classList.add("hidden");
+        codeBlock5.classList.add("hidden");
+        downloadTask5.classList.add("hidden");
       });
 
       btn2.addEventListener("click", () => {
@@ -164,6 +189,8 @@ else:
         downloadTask3.classList.add("hidden");
         codeBlock4.classList.add("hidden");
         downloadTask4.classList.add("hidden");
+        codeBlock5.classList.add("hidden");
+        downloadTask5.classList.add("hidden");
       });
 
       btn3.addEventListener("click", () => {
@@ -177,6 +204,8 @@ else:
         downloadTask2.classList.add("hidden");
         codeBlock4.classList.add("hidden");
         downloadTask4.classList.add("hidden");
+        codeBlock5.classList.add("hidden");
+        downloadTask5.classList.add("hidden");
       });
 
       btn4.addEventListener("click", () => {
@@ -190,6 +219,23 @@ else:
         downloadTask2.classList.add("hidden");
         codeBlock3.classList.add("hidden");
         downloadTask3.classList.add("hidden");
+        codeBlock5.classList.add("hidden");
+        downloadTask5.classList.add("hidden");
+      });
+
+      btn5.addEventListener("click", () => {
+        codeBlock5.textContent = codes[5];
+        codeBlock5.classList.remove("hidden");
+        downloadTask5.classList.remove("hidden");
+
+        codeBlock1.classList.add("hidden");
+        downloadTask1.classList.add("hidden");
+        codeBlock2.classList.add("hidden");
+        downloadTask2.classList.add("hidden");
+        codeBlock3.classList.add("hidden");
+        downloadTask3.classList.add("hidden");
+        codeBlock4.classList.add("hidden");
+        downloadTask4.classList.add("hidden");
       });
     </script>
   </body>
