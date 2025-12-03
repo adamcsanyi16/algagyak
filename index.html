@@ -18,41 +18,75 @@
         <button id="btn5">5. kód</button>
       </div>
 
-      <a
-        id="download-task1"
-        href="https://mester.inf.elte.hu:8181/faces/leiras.xhtml?jfwid=6e83d228f47b0019bc4e968dcf7f:48"
-        class="download-btn hidden"
-        >📄 Feladat megtekintése</a
-      >
-      <pre id="code-block1" class="code-block hidden"></pre>
-      <a
-        id="download-task2"
-        href="https://mester.inf.elte.hu:8181/faces/leiras.xhtml?jfwid=6e83d228f47b0019bc4e968dcf7f:29"
-        class="download-btn hidden"
-        >📄 Feladat megtekintése</a
-      >
-      <pre id="code-block2" class="code-block hidden"></pre>
-      <a
-        id="download-task3"
-        href="https://mester.inf.elte.hu:8181/faces/leiras.xhtml?jfwid=0d77f91504a4424312acfb25d143:21"
-        class="download-btn hidden"
-        >📄 Feladat megtekintése</a
-      >
-      <pre id="code-block3" class="code-block hidden"></pre>
-      <a
-        id="download-task4"
-        href="https://mester.inf.elte.hu:8181/faces/leiras.xhtml?jfwid=b87d5d9114d73a1f34fd1cd865e9:294"
-        class="download-btn hidden"
-        >📄 Feladat megtekintése</a
-      >
-      <pre id="code-block4" class="code-block hidden"></pre>
-      <a
-        id="download-task5"
-        href="https://mester.inf.elte.hu:8181/faces/leiras.xhtml?jfwid=b87d5d9114d73a1f34fd1cd865e9:294"
-        class="download-btn hidden"
-        >📄 Feladat megtekintése</a
-      >
-      <pre id="code-block5" class="code-block hidden"></pre>
+      <button id="download-task1" class="download-btn hidden" disabled>
+        📄 Feladat leírása
+      </button>
+      <div id="display-row1" class="display-row">
+        <pre id="code-block1" class="code-block hidden"></pre>
+
+        <img
+          id="task-image1"
+          class="task-image hidden"
+          src=""
+          alt="Feladat képe"
+        />
+      </div>
+
+      <button id="download-task2" class="download-btn hidden" disabled>
+        📄 Feladat leírása
+      </button>
+      <div id="display-row2" class="display-row">
+        <pre id="code-block2" class="code-block hidden"></pre>
+
+        <img
+          id="task-image2"
+          class="task-image hidden"
+          src=""
+          alt="Feladat képe"
+        />
+      </div>
+
+      <button id="download-task3" class="download-btn hidden" disabled>
+        📄 Feladat leírása
+      </button>
+      <div id="display-row3" class="display-row">
+        <pre id="code-block3" class="code-block hidden"></pre>
+
+        <img
+          id="task-image3"
+          class="task-image hidden"
+          src=""
+          alt="Feladat képe"
+        />
+      </div>
+
+      <button id="download-task4" class="download-btn hidden" disabled>
+        📄 Feladat leírása
+      </button>
+      <div id="display-row4" class="display-row">
+        <pre id="code-block4" class="code-block hidden"></pre>
+
+        <img
+          id="task-image4"
+          class="task-image hidden"
+          src=""
+          alt="Feladat képe"
+        />
+      </div>
+
+      <button id="download-task5" class="download-btn hidden" disabled>
+        📄 Feladat leírása
+      </button>
+      <div id="display-row5" class="display-row">
+        <pre id="code-block5" class="code-block hidden"></pre>
+
+        <img
+          id="task-image5"
+          class="task-image hidden"
+          src=""
+          alt="Feladat képe"
+        />
+      </div>
     </div>
 
     <script>
@@ -151,11 +185,23 @@ print(hely)
       const btn4 = document.getElementById("btn4");
       const btn5 = document.getElementById("btn5");
 
+      const codeRow1 = document.getElementById("display-row1");
+      const codeRow2 = document.getElementById("display-row2");
+      const codeRow3 = document.getElementById("display-row3");
+      const codeRow4 = document.getElementById("display-row4");
+      const codeRow5 = document.getElementById("display-row5");
+
       const codeBlock1 = document.getElementById("code-block1");
       const codeBlock2 = document.getElementById("code-block2");
       const codeBlock3 = document.getElementById("code-block3");
       const codeBlock4 = document.getElementById("code-block4");
       const codeBlock5 = document.getElementById("code-block5");
+
+      const taskImage1 = document.getElementById("task-image1");
+      const taskImage2 = document.getElementById("task-image2");
+      const taskImage3 = document.getElementById("task-image3");
+      const taskImage4 = document.getElementById("task-image4");
+      const taskImage5 = document.getElementById("task-image5");
 
       const downloadTask1 = document.getElementById("download-task1");
       const downloadTask2 = document.getElementById("download-task2");
@@ -163,79 +209,192 @@ print(hely)
       const downloadTask4 = document.getElementById("download-task4");
       const downloadTask5 = document.getElementById("download-task5");
 
-      btn1.addEventListener("click", () => {
+      //elso gomb funkciok
+      function elsokod() {
         codeBlock1.textContent = codes[1];
-        codeBlock1.classList.remove("hidden");
+        codeRow1.classList.remove("hidden");
         downloadTask1.classList.remove("hidden");
+        codeBlock1.classList.remove("hidden");
+      }
+
+      function elsoEltuntet() {
+        codeBlock2.classList.add("hidden");
+        codeRow2.classList.add("hidden");
+        downloadTask2.classList.add("hidden");
+        taskImage2.classList.add("hidden");
+
+        codeBlock3.classList.add("hidden");
+        codeRow3.classList.add("hidden");
+        downloadTask3.classList.add("hidden");
+        taskImage3.classList.add("hidden");
+
+        codeBlock4.classList.add("hidden");
+        codeRow4.classList.add("hidden");
+        downloadTask4.classList.add("hidden");
+        taskImage4.classList.add("hidden");
+
+        codeBlock5.classList.add("hidden");
+        codeRow5.classList.add("hidden");
+        downloadTask5.classList.add("hidden");
+        taskImage5.classList.add("hidden");
+      }
+
+      //masodik gomb funkciok
+      function masodikkod() {
+        codeBlock2.textContent = codes[2];
+        codeRow2.classList.remove("hidden");
+        downloadTask2.classList.remove("hidden");
+        codeBlock2.classList.remove("hidden");
+      }
+
+      function masodikEltuntet() {
+        codeBlock1.classList.add("hidden");
+        codeRow1.classList.add("hidden");
+        downloadTask1.classList.add("hidden");
+        taskImage1.classList.add("hidden");
+
+        codeBlock3.classList.add("hidden");
+        codeRow3.classList.add("hidden");
+        downloadTask3.classList.add("hidden");
+        taskImage3.classList.add("hidden");
+
+        codeBlock4.classList.add("hidden");
+        codeRow4.classList.add("hidden");
+        downloadTask4.classList.add("hidden");
+        taskImage4.classList.add("hidden");
+
+        codeBlock5.classList.add("hidden");
+        codeRow5.classList.add("hidden");
+        downloadTask5.classList.add("hidden");
+        taskImage5.classList.add("hidden");
+      }
+
+      function harmadikkod() {
+        codeBlock3.textContent = codes[3];
+        codeRow3.classList.remove("hidden");
+        downloadTask3.classList.remove("hidden");
+        codeBlock3.classList.remove("hidden");
+        taskImage3.classList.remove("hidden");
+      }
+
+      function harmadikEltuntet() {
+        codeBlock1.classList.add("hidden");
+        codeRow1.classList.add("hidden");
+        downloadTask1.classList.add("hidden");
+        taskImage1.classList.add("hidden");
 
         codeBlock2.classList.add("hidden");
+        codeRow2.classList.add("hidden");
         downloadTask2.classList.add("hidden");
-        codeBlock3.classList.add("hidden");
-        downloadTask3.classList.add("hidden");
+        taskImage2.classList.add("hidden");
+
         codeBlock4.classList.add("hidden");
+        codeRow4.classList.add("hidden");
         downloadTask4.classList.add("hidden");
+        taskImage4.classList.add("hidden");
+
         codeBlock5.classList.add("hidden");
+        codeRow5.classList.add("hidden");
         downloadTask5.classList.add("hidden");
+        taskImage5.classList.add("hidden");
+      }
+
+      function negyedikkod() {
+        codeBlock4.textContent = codes[4];
+        codeRow4.classList.remove("hidden");
+        downloadTask4.classList.remove("hidden");
+        codeBlock4.classList.remove("hidden");
+        taskImage4.classList.remove("hidden");
+      }
+
+      function negyedikEltuntet() {
+        codeBlock1.classList.add("hidden");
+        codeRow1.classList.add("hidden");
+        downloadTask1.classList.add("hidden");
+        taskImage1.classList.add("hidden");
+
+        codeBlock2.classList.add("hidden");
+        codeRow2.classList.add("hidden");
+        downloadTask2.classList.add("hidden");
+        taskImage2.classList.add("hidden");
+
+        codeBlock3.classList.add("hidden");
+        codeRow3.classList.add("hidden");
+        downloadTask3.classList.add("hidden");
+        taskImage3.classList.add("hidden");
+
+        codeBlock5.classList.add("hidden");
+        codeRow5.classList.add("hidden");
+        downloadTask5.classList.add("hidden");
+        taskImage5.classList.add("hidden");
+      }
+
+      function otodikkod() {
+        codeBlock5.textContent = codes[5];
+        codeRow5.classList.remove("hidden");
+        downloadTask5.classList.remove("hidden");
+        codeBlock5.classList.remove("hidden");
+        taskImage5.classList.remove("hidden");
+      }
+
+      function otodikEltuntet() {
+        codeBlock1.classList.add("hidden");
+        codeRow1.classList.add("hidden");
+        downloadTask1.classList.add("hidden");
+        taskImage1.classList.add("hidden");
+
+        codeBlock2.classList.add("hidden");
+        codeRow2.classList.add("hidden");
+        downloadTask2.classList.add("hidden");
+        taskImage2.classList.add("hidden");
+
+        codeBlock3.classList.add("hidden");
+        codeRow3.classList.add("hidden");
+        downloadTask3.classList.add("hidden");
+        taskImage3.classList.add("hidden");
+
+        codeBlock4.classList.add("hidden");
+        codeRow4.classList.add("hidden");
+        downloadTask4.classList.add("hidden");
+        taskImage4.classList.add("hidden");
+      }
+      btn1.addEventListener("click", () => {
+        elsokod();
+
+        taskImage1.src = "telek.png";
+        taskImage1.classList.remove("hidden");
+
+        elsoEltuntet();
       });
 
       btn2.addEventListener("click", () => {
-        codeBlock2.textContent = codes[2];
-        codeBlock2.classList.remove("hidden");
-        downloadTask2.classList.remove("hidden");
+        masodikkod();
 
-        codeBlock1.classList.add("hidden");
-        downloadTask1.classList.add("hidden");
-        codeBlock3.classList.add("hidden");
-        downloadTask3.classList.add("hidden");
-        codeBlock4.classList.add("hidden");
-        downloadTask4.classList.add("hidden");
-        codeBlock5.classList.add("hidden");
-        downloadTask5.classList.add("hidden");
+        taskImage2.src = "alatkert.png";
+        taskImage2.classList.remove("hidden");
+
+        masodikEltuntet();
       });
 
       btn3.addEventListener("click", () => {
-        codeBlock3.textContent = codes[3];
-        codeBlock3.classList.remove("hidden");
-        downloadTask3.classList.remove("hidden");
-
-        codeBlock1.classList.add("hidden");
-        downloadTask1.classList.add("hidden");
-        codeBlock2.classList.add("hidden");
-        downloadTask2.classList.add("hidden");
-        codeBlock4.classList.add("hidden");
-        downloadTask4.classList.add("hidden");
-        codeBlock5.classList.add("hidden");
-        downloadTask5.classList.add("hidden");
+        harmadikkod();
+        taskImage3.src = "3-feladat.png";
+        taskImage3.classList.remove("hidden");
+        harmadikEltuntet();
       });
 
       btn4.addEventListener("click", () => {
-        codeBlock4.textContent = codes[4];
-        codeBlock4.classList.remove("hidden");
-        downloadTask4.classList.remove("hidden");
-
-        codeBlock1.classList.add("hidden");
-        downloadTask1.classList.add("hidden");
-        codeBlock2.classList.add("hidden");
-        downloadTask2.classList.add("hidden");
-        codeBlock3.classList.add("hidden");
-        downloadTask3.classList.add("hidden");
-        codeBlock5.classList.add("hidden");
-        downloadTask5.classList.add("hidden");
+        negyedikkod();
+        taskImage4.src = "4-feladat.png";
+        taskImage4.classList.remove("hidden");
+        negyedikEltuntet();
       });
 
       btn5.addEventListener("click", () => {
-        codeBlock5.textContent = codes[5];
-        codeBlock5.classList.remove("hidden");
-        downloadTask5.classList.remove("hidden");
-
-        codeBlock1.classList.add("hidden");
-        downloadTask1.classList.add("hidden");
-        codeBlock2.classList.add("hidden");
-        downloadTask2.classList.add("hidden");
-        codeBlock3.classList.add("hidden");
-        downloadTask3.classList.add("hidden");
-        codeBlock4.classList.add("hidden");
-        downloadTask4.classList.add("hidden");
+        otodikkod();
+        taskImage5.src = "5-feladat.png";
+        taskImage5.classList.remove("hidden");
+        otodikEltuntet();
       });
     </script>
   </body>
