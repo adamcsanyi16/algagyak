@@ -91,7 +91,7 @@
 
     <script>
       const codes = {
-        1: `# Telek eladás (Dinamukus programozás)
+        1: `# Telek eladás (Dinamukus programozás)(közepes)
 n = int(input())
 T = [0] + list(map(int, input().split()))
 
@@ -118,19 +118,26 @@ while i >= 1:
 telkek.sort()
 print(*telkek)`,
 
-        2: `# Állatkert (Gráfok)
-N, M = map(int, input().split())
+        2: `# Állatkert (Gráfok) (közepes)
+n, m = map(int, input().split())
 
-deg = [0] * (N + 1)
-for _ in range(M):
+deg = [0] * (n+1)
+
+for _ in range(m):
     u, v = map(int, input().split())
     deg[u] += 1
     deg[v] += 1
 
-dead_ends = sum(1 for i in range(1, N + 1) if deg[i] == 1)
+dead_ends = 0
+max_node = 1
+max_deg = deg[1]
 
-max_deg = max(deg[1:])
-max_node = deg.index(max_deg)
+for i in range(1, n + 1):
+    if deg[i] == 1:
+        dead_ends += 1
+    if deg[i] > max_deg:
+        max_deg = deg[i]
+        max_node = i
 
 print(dead_ends, max_node)`,
 
@@ -163,7 +170,7 @@ if allomas == -1:
 else:
     print(allomas, erkezesiido)`,
 
-        5: `Ahol a madár se jár (könnyű)
+        5: `#Ahol a madár se jár (könnyű)
         m, n = map(int, input().split())
 
 hely = 0
