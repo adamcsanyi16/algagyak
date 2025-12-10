@@ -121,25 +121,25 @@ print(*telkek)`,
         2: `# Állatkert (Gráfok) (közepes)
 n, m = map(int, input().split())
 
-deg = [0] * (n+1)
+fok = [0] * (n+1)
 
-for _ in range(m):
+for i in range(m):
     u, v = map(int, input().split())
-    deg[u] += 1
-    deg[v] += 1
+    fok[u] += 1
+    fok[v] += 1
 
-dead_ends = 0
-max_node = 1
-max_deg = deg[1]
+holt_ag = 0
+max_ag = 1
+max_fok = fok[1]
 
 for i in range(1, n + 1):
-    if deg[i] == 1:
-        dead_ends += 1
-    if deg[i] > max_deg:
-        max_deg = deg[i]
-        max_node = i
+    if fok[i] == 1:
+        holt_ag += 1
+    if fok[i] > max_fok:
+        max_fok = fok[i]
+        max_ag = i
 
-print(dead_ends, max_node)`,
+print(holt_ag, max_ag)`,
 
         3: `# Felszállók száma (könnyű)
 N = int(input())
